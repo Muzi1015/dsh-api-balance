@@ -37,18 +37,23 @@ and an `api_balance` tool the agent can call on its own.
 
 ## Install
 
-**From npm** (recommended) — ask your agent:
+**From this repository** (works today) — clone it, then install the directory:
+
+```bash
+git clone https://github.com/Muzi1015/dsh-api-balance.git
+```
+
+Then tell your agent:
+
+> Install the plugin bundle at `<absolute path>/dsh-api-balance`.
+
+**From npm** (once `dsh-api-balance-plugin` is published) — ask your agent:
 
 > Install the `dsh-api-balance-plugin` plugin bundle.
 
-That runs Plugin Manager's `install_bundle` with the package name, links it into your profile, and enables it. You can
-also install it from the app's **Settings → Plugins** area by package name.
-
-**From a local checkout** — clone this repository and install the directory:
-
-> Install the plugin bundle at `D:\path\to\dsh-api-balance-plugin`.
-
-Both routes survive restarts because the bundle is recorded in your profile, not in a session.
+Either route runs Plugin Manager's `install_bundle`, links the package into your profile, and enables it. You can also
+install by package name from the app's **Settings → Plugins** area. Both survive restarts because the bundle is recorded
+in your profile, not in a session.
 
 ## Configuration
 
