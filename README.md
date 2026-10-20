@@ -4,6 +4,8 @@
 
 [![npm version](https://img.shields.io/npm/v/dsh-api-balance-plugin.svg)](https://www.npmjs.com/package/dsh-api-balance-plugin)
 
+<img width="447" height="333" alt="The API balance pill under the composer and its detail popover" src="https://github.com/user-attachments/assets/2da8fe39-2c43-4e12-8a73-b60941354a6d" />
+
 A [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) **plugin bundle** that keeps your DeepSeek
 API balance in sight: a resident pill under the composer, a click-through detail popover, a `/balance` command,
 and an `api_balance` tool the agent can call on its own.
@@ -182,6 +184,3 @@ UI 和一个工具；skill 只是给模型的提示词文本。
 **发布**：已发布到 npm（`dsh-api-balance-plugin@1.0.0`，2026-10-20）和 GitHub（tag `v1.0.0`）。以后发新版：
 `npm version patch` → `git push --follow-tags` → `npm publish`（npm 会要一次浏览器/2FA 确认）。改包名时只需改
 `package.json` 的 `name`、`client.js` 的 `id`、`cordis.patch.yml` 的 `name` 三处，再重装一次即可。
-
-
-<img width="447" height="333" alt="image" src="https://github.com/user-attachments/assets/2da8fe39-2c43-4e12-8a73-b60941354a6d" />
