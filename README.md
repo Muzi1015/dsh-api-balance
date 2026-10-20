@@ -186,3 +186,4 @@ UI 和一个工具；skill 只是给模型的提示词文本。
 **发布前**：包名 `dsh-api-balance-plugin` 已于 2026-10-20 确认在 npm 上可用；本地已有一次提交和 `v1.0.0` 标签。
 你只需要：在 GitHub 建一个空的同名仓库并 push，然后 `npm login` + `npm publish`。如果哪天要改包名，只需改
 `package.json` 的 `name`、`client.js` 的 `id`、`cordis.patch.yml` 的 `name` 三处，再重装一次即可。
+<img width="447" height="333" alt="image" src="https://github.com/user-attachments/assets/2da8fe39-2c43-4e12-8a73-b60941354a6d" />
