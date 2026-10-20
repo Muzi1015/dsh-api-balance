@@ -1,0 +1,57 @@
+{
+  "name": "dsh-api-balance-plugin",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Resident DeepSeek API balance pill and detail popover under the composer, plus a /balance command and an api_balance agent tool.",
+  "license": "Unlicense",
+  "author": "Muzi1015",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "deepseek",
+    "balance",
+    "quota"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Muzi1015/dsh-api-balance.git"
+  },
+  "homepage": "https://github.com/Muzi1015/dsh-api-balance#readme",
+  "bugs": {
+    "url": "https://github.com/Muzi1015/dsh-api-balance/issues"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check client.js"
+  },
+  "engines": {
+    "dsh": ">=0.2.1-rc.2"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  }
+}

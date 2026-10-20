@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "API Balance",
+    "description": "Keeps your DeepSeek API balance under the composer and opens a detail popover with topped-up and granted credit; /balance prints it in chat."
+  }
+}

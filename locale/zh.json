@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "API 余额",
+    "description": "在输入框下方常驻显示 DeepSeek API 余额，点击展开充值/赠送明细；在输入框输入 /balance 也能直接查询。"
+  }
+}

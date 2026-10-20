@@ -1,0 +1,8 @@
+# Inserts the DeepSeek API balance plugin: the resident pill/popover in the
+# composer dock, the /balance command, and the api_balance agent tool.
+- insert:
+    - id: api-balance
+      name: 'dsh-api-balance-plugin'
+      config:
+        refreshSeconds: 60
+        lowBalance: 5
