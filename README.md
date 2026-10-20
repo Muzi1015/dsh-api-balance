@@ -1,6 +1,8 @@
 # dsh-api-balance
 
-> DeepSeek Harness 内置余额显示 · npm package: `dsh-api-balance-plugin`
+> DeepSeek Harness 内置余额显示 · npm: [`dsh-api-balance-plugin`](https://www.npmjs.com/package/dsh-api-balance-plugin)
+
+[![npm version](https://img.shields.io/npm/v/dsh-api-balance-plugin.svg)](https://www.npmjs.com/package/dsh-api-balance-plugin)
 
 A [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) **plugin bundle** that keeps your DeepSeek
 API balance in sight: a resident pill under the composer, a click-through detail popover, a `/balance` command,
@@ -37,23 +39,22 @@ and an `api_balance` tool the agent can call on its own.
 
 ## Install
 
-**From this repository** (works today) — clone it, then install the directory:
+**From npm** — ask your agent:
+
+> Install the `dsh-api-balance-plugin` plugin bundle.
+
+That runs Plugin Manager's `install_bundle` with the package name, links it into your profile, and enables it; the app's
+**Settings → Plugins** area accepts the same name. Reinstalling the package is how an upgrade lands.
+
+**From this repository** — clone it and install the directory (handy while trying a local change):
 
 ```bash
 git clone https://github.com/Muzi1015/dsh-api-balance.git
 ```
 
-Then tell your agent:
-
 > Install the plugin bundle at `<absolute path>/dsh-api-balance`.
 
-**From npm** (once `dsh-api-balance-plugin` is published) — ask your agent:
-
-> Install the `dsh-api-balance-plugin` plugin bundle.
-
-Either route runs Plugin Manager's `install_bundle`, links the package into your profile, and enables it. You can also
-install by package name from the app's **Settings → Plugins** area. Both survive restarts because the bundle is recorded
-in your profile, not in a session.
+Both routes survive restarts because the bundle is recorded in your profile, not in a session.
 
 ## Configuration
 
@@ -130,25 +131,20 @@ npm run check          # node --check on both halves
 The Host half is plain ESM and the browser half is plain JS registered through `window.__ModuleLoader__`, so there is
 no build step. After editing, reinstall the directory (or restart the Harness) to pick up a fresh module generation.
 
-## Publishing checklist
+## Releasing a new version
 
-The repository already carries an initial commit and a `v1.0.0` tag, and the package name `dsh-api-balance-plugin` was
-checked free on npm on 2026-10-20. What is left runs under your own account:
-
-1. **Metadata** — `author`, `repository`, `homepage` and `bugs` already point at `Muzi1015/dsh-api-balance`;
-   adjust them if you publish under another account.
-2. **GitHub** — the public repository `Muzi1015/dsh-api-balance` is already created and empty; push the prepared
-   commit and tag:
+`1.0.0` is published to npm and tagged `v1.0.0` on GitHub. For the next release:
 
 ```bash
-git remote add origin git@github.com:Muzi1015/dsh-api-balance.git
-git push -u origin main --tags
+npm version patch        # bumps package.json, commits and tags
+git push --follow-tags
+npm publish              # npm asks for the interactive confirmation / 2FA
 ```
 
-3. **npm** — `npm login`, then `npm publish`. A scoped alternative (`@<your-scope>/dsh-api-balance-plugin`) needs the
-   three renames below plus `--access public`.
+The bundle you run locally is a link to this checkout, so a local edit needs only a reinstall; a published release is the
+three lines above.
 
-If the name is ever taken, rename in exactly three places — `package.json` `name`, the `id` in `client.js`, and the
+If you ever rename the package, change exactly three places — `package.json` `name`, the `id` in `client.js`, and the
 `name` in `cordis.patch.yml` — and reinstall the bundle.
 
 A screenshot of the pill and popover is the one asset this repository cannot generate on its own — add one to the
@@ -166,8 +162,8 @@ The Unlicense (public domain) — see [LICENSE](LICENSE).
 **这是什么**：一个 DeepSeek Harness 插件包（Host 半 + 浏览器半 + bundle 补丁），不是 skill。装进 Harness 后会真实增加
 UI 和一个工具；skill 只是给模型的提示词文本。
 
-**别人怎么用**：让他的 agent 说「安装 `dsh-api-balance-plugin` 插件包」（Plugin Manager 的 `install_bundle`），或者在设置 →
-插件里按包名安装；本地克隆的目录也可以直接作为安装目标。
+**别人怎么用**：让他的 agent 说「安装 `dsh-api-balance-plugin` 插件包」（`install_bundle` 会从 npm 拉取），或者在设置 →
+插件里按包名安装；想试本地改动时，也可以 clone 仓库后直接安装那个目录。
 
 **他能看到什么**：
 
@@ -183,8 +179,8 @@ UI 和一个工具；skill 只是给模型的提示词文本。
 
 **限制**：只支持 DeepSeek（其他厂商没有余额接口）；只能看余额，明细跳平台页面；胶囊需要 Web 界面。
 
-**发布前**：包名 `dsh-api-balance-plugin` 已于 2026-10-20 确认在 npm 上可用；本地已有一次提交和 `v1.0.0` 标签。
-你只需要：在 GitHub 建一个空的同名仓库并 push，然后 `npm login` + `npm publish`。如果哪天要改包名，只需改
+**发布**：已发布到 npm（`dsh-api-balance-plugin@1.0.0`，2026-10-20）和 GitHub（tag `v1.0.0`）。以后发新版：
+`npm version patch` → `git push --follow-tags` → `npm publish`（npm 会要一次浏览器/2FA 确认）。改包名时只需改
 `package.json` 的 `name`、`client.js` 的 `id`、`cordis.patch.yml` 的 `name` 三处，再重装一次即可。
 
 
